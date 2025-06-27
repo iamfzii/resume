@@ -3,7 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Mail, Phone, Linkedin, Github, Download, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
-import { generateResumePDF, resumeData } from "@/lib/pdf-generator";
+import { generateSimpleResumePDF } from "@/lib/simple-pdf-generator";
 import profilePicture from "@assets/profile picture_1751053870878.jpg";
 
 export default function HeroSection() {
@@ -11,7 +11,7 @@ export default function HeroSection() {
 
   const handleDownloadPDF = () => {
     try {
-      generateResumePDF(resumeData);
+      generateSimpleResumePDF();
     } catch (error) {
       console.error('PDF generation failed:', error);
     }

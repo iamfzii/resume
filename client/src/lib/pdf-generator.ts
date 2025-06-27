@@ -47,13 +47,25 @@ export function generateResumePDF(data: ResumeData): void {
   const pageWidth = doc.internal.pageSize.width;
   const margin = 20;
   const contentWidth = pageWidth - (2 * margin);
+  const lineHeight = 6;
 
   // Helper function to add text with word wrapping
   const addWrappedText = (text: string, x: number, y: number, maxWidth: number, fontSize: number = 10): number => {
+    if (!text || text.trim() === '') return y;
+    
     doc.setFontSize(fontSize);
     const lines = doc.splitTextToSize(text, maxWidth);
-    doc.text(lines, x, y);
-    return y + (lines.length * (fontSize * 0.4));
+    
+    for (let i = 0; i < lines.length; i++) {
+      if (y + (i * lineHeight) > doc.internal.pageSize.height - 20) {
+        doc.addPage();
+        y = 20;
+        i = 0;
+      }
+      doc.text(lines[i], x, y + (i * lineHeight));
+    }
+    
+    return y + (lines.length * lineHeight);
   };
 
   // Helper function to check if we need a new page
@@ -68,23 +80,25 @@ export function generateResumePDF(data: ResumeData): void {
   // Header
   doc.setFontSize(22);
   doc.setFont("helvetica", "bold");
-  doc.text(data.personalInfo.name, margin, yPosition);
-  yPosition += 8;
+  doc.text(data.personalInfo.name || "Muhammad Fazeel", margin, yPosition);
+  yPosition += 10;
 
   doc.setFontSize(14);
   doc.setFont("helvetica", "normal");
-  doc.text(data.personalInfo.title, margin, yPosition);
+  doc.text(data.personalInfo.title || "Technical Operations Coordinator", margin, yPosition);
   yPosition += 10;
 
   // Contact Information
   doc.setFontSize(10);
+  doc.setFont("helvetica", "normal");
+  
   const contactInfo = [
-    data.personalInfo.email,
-    data.personalInfo.phone,
-    data.personalInfo.location,
-    data.personalInfo.linkedin,
-    data.personalInfo.github
-  ].filter(Boolean);
+    data.personalInfo.email || "fazeel.engineer@outlook.com",
+    data.personalInfo.phone || "+92 300 1234567",
+    data.personalInfo.location || "Lahore, Pakistan",
+    data.personalInfo.linkedin || "linkedin.com/in/muhammadazeel",
+    data.personalInfo.github || "github.com/muhammadazeel"
+  ];
 
   contactInfo.forEach((info, index) => {
     if (index % 2 === 0) {
@@ -92,11 +106,11 @@ export function generateResumePDF(data: ResumeData): void {
       if (contactInfo[index + 1]) {
         doc.text(contactInfo[index + 1], pageWidth / 2, yPosition);
       }
-      yPosition += 5;
+      yPosition += 6;
     }
   });
 
-  yPosition += 5;
+  yPosition += 8;
 
   // Professional Summary
   yPosition = checkPageBreak(30);
