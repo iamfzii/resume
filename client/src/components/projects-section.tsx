@@ -78,49 +78,70 @@ export default function ProjectsSection() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -4 }}
+                whileHover={{ 
+                  y: -8, 
+                  scale: 1.02,
+                  rotateY: 5,
+                  rotateX: 5 
+                }}
+                className="perspective-1000"
               >
-                <Card className="theme-surface rounded-2xl shadow-lg p-6 card-hover theme-border border h-full flex flex-col">
-                  <div className="flex items-center mb-4">
-                    <IconComponent className="w-6 h-6 theme-primary mr-3" />
-                    <h3 className="font-heading font-semibold text-lg theme-text-primary flex-1">
-                      {project.title}
-                    </h3>
+                <Card className="theme-surface rounded-2xl shadow-lg p-6 card-hover theme-border border h-full flex flex-col relative overflow-hidden group cursor-pointer">
+                  {/* Animated background gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-blue-950/20 dark:to-purple-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  
+                  {/* Tech pattern overlay */}
+                  <div className="absolute top-0 right-0 w-32 h-32 opacity-5 group-hover:opacity-10 transition-opacity duration-300">
+                    <svg viewBox="0 0 100 100" className="w-full h-full">
+                      <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="1" />
+                      <circle cx="50" cy="50" r="20" fill="none" stroke="currentColor" strokeWidth="1" />
+                      <line x1="30" y1="50" x2="70" y2="50" stroke="currentColor" strokeWidth="1" />
+                      <line x1="50" y1="30" x2="50" y2="70" stroke="currentColor" strokeWidth="1" />
+                    </svg>
                   </div>
                   
-                  <p className="theme-text-secondary mb-4 text-sm leading-relaxed flex-1">
-                    {project.description}
-                  </p>
-                  
-                  <div className="flex flex-wrap gap-1 mb-4">
-                    {project.techStack.map((tech, techIndex) => (
-                      <Badge
-                        key={tech}
-                        variant="secondary"
-                        className={`px-2 py-1 text-xs font-mono ${
-                          project.techColors[techIndex % project.techColors.length]
-                        }`}
+                  <div className="relative z-10">
+                    <div className="flex items-center mb-4">
+                      <IconComponent className="w-6 h-6 theme-primary mr-3" />
+                      <h3 className="font-heading font-semibold text-lg theme-text-primary flex-1">
+                        {project.title}
+                      </h3>
+                    </div>
+                    
+                    <p className="theme-text-secondary mb-4 text-sm leading-relaxed flex-1">
+                      {project.description}
+                    </p>
+                    
+                    <div className="flex flex-wrap gap-1 mb-4">
+                      {project.techStack.map((tech, techIndex) => (
+                        <Badge
+                          key={tech}
+                          variant="secondary"
+                          className={`px-2 py-1 text-xs font-mono ${
+                            project.techColors[techIndex % project.techColors.length]
+                          }`}
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                    
+                    <div className="flex space-x-3 mt-auto">
+                      <Button
+                        size="sm"
+                        variant="outline"
+                        className="flex-1 theme-surface theme-border hover:shadow-md transition-all duration-200"
                       >
-                        {tech}
-                      </Badge>
-                    ))}
-                  </div>
-                  
-                  <div className="flex space-x-3 mt-auto">
-                    <Button
-                      size="sm"
-                      className="flex-1 theme-primary-bg text-white hover:shadow-md transition-all duration-200"
-                    >
-                      <ExternalLink className="w-3 h-3 mr-1" />
-                      View Details
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="theme-surface theme-border hover:shadow-md transition-all duration-200"
-                    >
-                      <Github className="w-3 h-3" />
-                    </Button>
+                        <Github className="w-3 h-3 mr-1" />
+                        Code
+                      </Button>
+                      <Button
+                        size="sm"
+                        className="theme-primary-bg text-white hover:shadow-md transition-all duration-200"
+                      >
+                        <ExternalLink className="w-3 h-3" />
+                      </Button>
+                    </div>
                   </div>
                 </Card>
               </motion.div>

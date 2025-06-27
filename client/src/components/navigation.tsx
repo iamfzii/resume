@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
-import { Palette, Menu, Type } from "lucide-react";
+import { Palette, Menu, Settings, Type } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import { motion } from "framer-motion";
+import DesignSystemSwitcher from "@/components/design-system-switcher";
 
 const navigation = [
   { name: "Home", href: "#hero" },
@@ -106,82 +107,67 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center space-x-4">
-            {/* Theme Switcher */}
+            {/* Main Design System Switcher */}
+            <DesignSystemSwitcher />
+
+            {/* Advanced Customization */}
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" size="icon" className="theme-surface theme-border">
-                  <Palette className="h-4 w-4 theme-text-secondary" />
+                  <Settings className="h-4 w-4 theme-text-secondary" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-56 theme-surface theme-border">
+              <PopoverContent className="w-64 theme-surface theme-border">
                 <div className="space-y-4">
                   <div>
-                    <h4 className="font-medium theme-text-primary mb-2">Color Themes</h4>
-                    <div className="space-y-1">
-                      {themes.map((themeOption) => (
-                        <button
-                          key={themeOption.value}
-                          onClick={() => setTheme(themeOption.value as any)}
-                          className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-150 flex items-center space-x-3"
-                        >
-                          <div className={`w-4 h-4 ${themeOption.color} rounded-full`} />
-                          <span className={`theme-text-primary text-sm ${theme === themeOption.value ? 'font-medium' : ''}`}>
-                            {themeOption.name}
-                          </span>
-                        </button>
-                      ))}
+                    <h4 className="font-medium theme-text-primary mb-3">Individual Controls</h4>
+                    
+                    <div className="space-y-3">
+                      <div>
+                        <label className="text-sm theme-text-secondary mb-2 block">Color Theme</label>
+                        <div className="grid grid-cols-3 gap-1">
+                          {themes.map((themeOption) => (
+                            <button
+                              key={themeOption.value}
+                              onClick={() => setTheme(themeOption.value as any)}
+                              className={`p-2 rounded-md border transition-all duration-150 ${
+                                theme === themeOption.value
+                                  ? "ring-2 ring-blue-500 border-blue-300"
+                                  : "border-gray-200 dark:border-gray-700 hover:border-gray-300"
+                              }`}
+                            >
+                              <div className={`w-full h-4 ${themeOption.color} rounded mb-1`} />
+                              <div className="text-xs theme-text-primary truncate">
+                                {themeOption.name.split(' ')[0]}
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                      
+                      <Separator />
+                      
+                      <div>
+                        <label className="text-sm theme-text-secondary mb-2 block">Typography</label>
+                        <div className="space-y-1">
+                          {fontCombinations.map((font) => (
+                            <button
+                              key={font.value}
+                              onClick={() => setFontCombination(font.value as any)}
+                              className={`w-full text-left px-2 py-1.5 rounded text-xs transition-colors duration-150 ${
+                                fontCombination === font.value
+                                  ? "theme-primary-bg text-white"
+                                  : "hover:bg-gray-100 dark:hover:bg-gray-800"
+                              }`}
+                            >
+                              <div className="font-medium">{font.name}</div>
+                              <div className="opacity-70">{font.description}</div>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  
-                  <Separator />
-                  
-                  <div>
-                    <h4 className="font-medium theme-text-primary mb-2">Font Styles</h4>
-                    <div className="space-y-1">
-                      {fontCombinations.map((font) => (
-                        <button
-                          key={font.value}
-                          onClick={() => setFontCombination(font.value as any)}
-                          className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-150"
-                        >
-                          <div className={`theme-text-primary text-sm ${fontCombination === font.value ? 'font-medium' : ''}`}>
-                            {font.name}
-                          </div>
-                          <div className="theme-text-muted text-xs">
-                            {font.description}
-                          </div>
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </PopoverContent>
-            </Popover>
-
-            {/* Font Switcher */}
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button variant="outline" size="icon" className="theme-surface theme-border">
-                  <Type className="h-4 w-4 theme-text-secondary" />
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-52 theme-surface theme-border">
-                <div className="space-y-2">
-                  <h4 className="font-medium theme-text-primary mb-2">Typography</h4>
-                  {fontCombinations.map((font) => (
-                    <button
-                      key={font.value}
-                      onClick={() => setFontCombination(font.value as any)}
-                      className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-150"
-                    >
-                      <div className={`theme-text-primary text-sm ${fontCombination === font.value ? 'font-medium' : ''}`}>
-                        {font.name}
-                      </div>
-                      <div className="theme-text-muted text-xs">
-                        {font.description}
-                      </div>
-                    </button>
-                  ))}
                 </div>
               </PopoverContent>
             </Popover>
@@ -193,16 +179,49 @@ export default function Navigation() {
                 </Button>
               </SheetTrigger>
               <SheetContent className="theme-surface">
-                <div className="flex flex-col space-y-4 mt-6">
-                  {navigation.map((item) => (
-                    <button
-                      key={item.name}
-                      onClick={() => scrollToSection(item.href)}
-                      className="text-left px-3 py-2 rounded-md theme-text-secondary hover:theme-primary transition-colors duration-200"
-                    >
-                      {item.name}
-                    </button>
-                  ))}
+                <div className="flex flex-col space-y-6 mt-6">
+                  {/* Navigation Links */}
+                  <div className="space-y-2">
+                    <h4 className="font-medium theme-text-primary text-sm mb-3">Navigation</h4>
+                    {navigation.map((item) => (
+                      <button
+                        key={item.name}
+                        onClick={() => scrollToSection(item.href)}
+                        className="w-full text-left px-3 py-2 rounded-md theme-text-secondary hover:theme-primary transition-colors duration-200"
+                      >
+                        {item.name}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Design System for Mobile */}
+                  <div className="space-y-4">
+                    <h4 className="font-medium theme-text-primary text-sm">Design Style</h4>
+                    <DesignSystemSwitcher />
+                    
+                    {/* Quick Theme Switcher */}
+                    <div className="space-y-2">
+                      <label className="text-xs theme-text-secondary">Quick Themes</label>
+                      <div className="grid grid-cols-2 gap-2">
+                        {themes.slice(0, 4).map((themeOption) => (
+                          <button
+                            key={themeOption.value}
+                            onClick={() => setTheme(themeOption.value as any)}
+                            className={`p-2 rounded-md border text-xs transition-all duration-150 ${
+                              theme === themeOption.value
+                                ? "ring-2 ring-blue-500 border-blue-300"
+                                : "border-gray-200 dark:border-gray-700"
+                            }`}
+                          >
+                            <div className={`w-full h-3 ${themeOption.color} rounded mb-1`} />
+                            <div className="theme-text-primary truncate">
+                              {themeOption.name.split(' ')[0]}
+                            </div>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </SheetContent>
             </Sheet>
