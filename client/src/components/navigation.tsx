@@ -3,10 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Separator } from "@/components/ui/separator";
-import { Palette, Menu, Settings, Type } from "lucide-react";
+import { Palette, Menu, Settings, Type, Download } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import { motion } from "framer-motion";
 import DesignSystemSwitcher from "@/components/design-system-switcher";
+import { generateResumePDF, resumeData } from "@/lib/pdf-generator";
 
 const navigation = [
   { name: "Home", href: "#hero" },
@@ -40,6 +41,14 @@ export default function Navigation() {
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
   const { theme, setTheme, fontCombination, setFontCombination } = useTheme();
+
+  const handleDownloadPDF = () => {
+    try {
+      generateResumePDF(resumeData);
+    } catch (error) {
+      console.error('PDF generation failed:', error);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -107,6 +116,17 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center space-x-4">
+            {/* PDF Download Button */}
+            <Button 
+              onClick={handleDownloadPDF}
+              variant="outline" 
+              size="sm" 
+              className="theme-surface theme-border hover:theme-primary-bg hover:theme-text-primary-contrast transition-all duration-200"
+            >
+              <Download className="h-4 w-4 mr-2" />
+              Download PDF
+            </Button>
+
             {/* Main Design System Switcher */}
             <DesignSystemSwitcher />
 
@@ -192,6 +212,19 @@ export default function Navigation() {
                         {item.name}
                       </button>
                     ))}
+                  </div>
+
+                  {/* PDF Download for Mobile */}
+                  <div className="space-y-2">
+                    <h4 className="font-medium theme-text-primary text-sm mb-3">Resume</h4>
+                    <Button 
+                      onClick={handleDownloadPDF}
+                      variant="outline" 
+                      className="w-full theme-surface theme-border hover:theme-primary-bg hover:theme-text-primary-contrast transition-all duration-200"
+                    >
+                      <Download className="h-4 w-4 mr-2" />
+                      Download PDF Resume
+                    </Button>
                   </div>
 
                   {/* Design System for Mobile */}

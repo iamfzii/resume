@@ -3,10 +3,19 @@ import { Card } from "@/components/ui/card";
 import { Mail, Phone, Linkedin, Github, Download, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import { generateResumePDF, resumeData } from "@/lib/pdf-generator";
 import profilePicture from "@assets/profile picture_1751053870878.jpg";
 
 export default function HeroSection() {
   const ref = useScrollReveal();
+
+  const handleDownloadPDF = () => {
+    try {
+      generateResumePDF(resumeData);
+    } catch (error) {
+      console.error('PDF generation failed:', error);
+    }
+  };
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -100,10 +109,10 @@ export default function HeroSection() {
           >
             <Button
               className="theme-primary-bg text-white px-8 py-3 hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-              onClick={() => window.print()}
+              onClick={handleDownloadPDF}
             >
               <Download className="w-4 h-4 mr-2" />
-              Download Resume
+              Download PDF
             </Button>
             <Button
               variant="outline"
