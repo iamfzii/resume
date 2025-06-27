@@ -102,26 +102,6 @@ export default function HeroSection() {
               <span>GitHub</span>
             </a>
           </motion.div>
-
-          <motion.div
-            variants={itemVariants}
-            className="flex flex-wrap justify-center gap-4"
-          >
-            <Button
-              className="theme-primary-bg text-white px-8 py-3 hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-              onClick={handleDownloadPDF}
-            >
-              <Download className="w-4 h-4 mr-2" />
-              Download PDF
-            </Button>
-            <Button
-              variant="outline"
-              className="theme-surface theme-border px-8 py-3 hover:shadow-lg transform hover:scale-105 transition-all duration-200"
-            >
-              <MessageCircle className="w-4 h-4 mr-2" />
-              Contact Me
-            </Button>
-          </motion.div>
         </Card>
       </motion.div>
     </section>
