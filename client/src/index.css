@@ -1,8 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&family=JetBrains+Mono:wght@400;500&family=Playfair+Display:wght@400;500;600;700&family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;600;700&family=Lora:wght@400;500;600&family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
 
 :root {
   --background: hsl(250, 20%, 98%);
@@ -127,6 +129,69 @@
   --theme-success: hsl(159, 61%, 41%);
 }
 
+[data-theme="purple"] {
+  --theme-primary: hsl(270, 91%, 65%);
+  --theme-secondary: hsl(291, 84%, 61%);
+  --theme-accent: hsl(45, 93%, 58%);
+  --theme-background: hsl(270, 100%, 98%);
+  --theme-surface: hsl(0, 0%, 100%);
+  --theme-text-primary: hsl(270, 50%, 15%);
+  --theme-text-secondary: hsl(270, 25%, 35%);
+  --theme-text-muted: hsl(270, 15%, 55%);
+  --theme-border: hsl(270, 50%, 90%);
+  --theme-success: hsl(158, 64%, 52%);
+}
+
+[data-theme="sunset"] {
+  --theme-primary: hsl(14, 91%, 58%);
+  --theme-secondary: hsl(45, 93%, 58%);
+  --theme-accent: hsl(270, 91%, 65%);
+  --theme-background: hsl(20, 100%, 98%);
+  --theme-surface: hsl(0, 0%, 100%);
+  --theme-text-primary: hsl(20, 50%, 15%);
+  --theme-text-secondary: hsl(20, 25%, 35%);
+  --theme-text-muted: hsl(20, 15%, 55%);
+  --theme-border: hsl(20, 50%, 90%);
+  --theme-success: hsl(158, 64%, 52%);
+}
+
+/* Font Combinations */
+[data-font="modern"] {
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-body: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+[data-font="classic"] {
+  --font-heading: 'Playfair Display', 'Times New Roman', serif;
+  --font-body: 'Lora', 'Georgia', serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+[data-font="tech"] {
+  --font-heading: 'Space Grotesk', 'Inter', sans-serif;
+  --font-body: 'IBM Plex Sans', 'Roboto', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Source Code Pro', monospace;
+}
+
+[data-font="elegant"] {
+  --font-heading: 'Montserrat', 'Inter', sans-serif;
+  --font-body: 'Source Sans Pro', 'Roboto', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-font="bold"] {
+  --font-heading: 'Poppins', 'Inter', sans-serif;
+  --font-body: 'Roboto', 'Source Sans Pro', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+[data-font="minimal"] {
+  --font-heading: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
 @layer base {
   * {
     @apply border-border;
@@ -136,16 +201,17 @@
     @apply font-sans antialiased;
     background-color: var(--theme-background);
     color: var(--theme-text-primary);
-    font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: var(--font-body);
+    transition: background-color 0.3s ease, color 0.3s ease, font-family 0.3s ease;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    font-family: var(--font-heading);
+    transition: font-family 0.3s ease;
   }
 
   .font-mono {
-    font-family: 'JetBrains Mono', 'Fira Code', monospace;
+    font-family: var(--font-mono);
   }
 }
 

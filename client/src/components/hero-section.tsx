@@ -3,6 +3,7 @@ import { Card } from "@/components/ui/card";
 import { Mail, Phone, Linkedin, Github, Download, MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { useScrollReveal } from "@/hooks/use-scroll-reveal";
+import profilePicture from "@assets/profile picture_1751053870878.jpg";
 
 export default function HeroSection() {
   const ref = useScrollReveal();
@@ -36,8 +37,12 @@ export default function HeroSection() {
       >
         <Card className="theme-surface rounded-3xl shadow-2xl p-8 sm:p-12 card-hover theme-border border">
           <motion.div variants={itemVariants}>
-            <div className="w-36 h-36 mx-auto mb-8 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-4xl font-bold shadow-lg">
-              MF
+            <div className="w-36 h-36 mx-auto mb-8 rounded-full overflow-hidden shadow-2xl ring-4 ring-white dark:ring-gray-800">
+              <img 
+                src={profilePicture} 
+                alt="Muhammad Fazeel - Technical Operations Coordinator" 
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
 

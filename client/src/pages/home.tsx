@@ -8,22 +8,26 @@ import ExperienceSection from "@/components/experience-section";
 import EducationSection from "@/components/education-section";
 import CertificationsSection from "@/components/certifications-section";
 import Footer from "@/components/footer";
+import InteractiveBackground from "@/components/interactive-background";
 
 export default function Home() {
   return (
-    <div className="min-h-screen">
-      <Navigation />
-      <main>
-        <HeroSection />
-        <CareerProfile />
-        <SkillsSection />
-        <ProjectsSection />
-        <DemonstrationsSection />
-        <ExperienceSection />
-        <EducationSection />
-        <CertificationsSection />
-      </main>
-      <Footer />
+    <div className="min-h-screen relative">
+      <InteractiveBackground />
+      <div className="relative z-10">
+        <Navigation />
+        <main>
+          <HeroSection />
+          <CareerProfile />
+          <SkillsSection />
+          <ProjectsSection />
+          <DemonstrationsSection />
+          <ExperienceSection />
+          <EducationSection />
+          <CertificationsSection />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 }

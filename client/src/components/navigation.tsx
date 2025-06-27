@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
-import { Palette, Menu } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { Palette, Menu, Type } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import { motion } from "framer-motion";
 
@@ -21,12 +22,23 @@ const themes = [
   { name: "Dark", value: "dark", color: "bg-gray-800" },
   { name: "Blue Professional", value: "blue", color: "bg-blue-700" },
   { name: "Green Creative", value: "green", color: "bg-green-600" },
+  { name: "Purple Modern", value: "purple", color: "bg-purple-600" },
+  { name: "Sunset Warm", value: "sunset", color: "bg-orange-600" },
+];
+
+const fontCombinations = [
+  { name: "Modern", value: "modern", description: "Inter + Source Sans Pro" },
+  { name: "Classic", value: "classic", description: "Playfair + Lora" },
+  { name: "Tech", value: "tech", description: "Space Grotesk + IBM Plex" },
+  { name: "Elegant", value: "elegant", description: "Montserrat + Source Sans" },
+  { name: "Bold", value: "bold", description: "Poppins + Roboto" },
+  { name: "Minimal", value: "minimal", description: "Inter Only" },
 ];
 
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState("");
   const [isScrolled, setIsScrolled] = useState(false);
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, fontCombination, setFontCombination } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,24 +106,80 @@ export default function Navigation() {
           </div>
 
           <div className="flex items-center space-x-4">
+            {/* Theme Switcher */}
             <Popover>
               <PopoverTrigger asChild>
                 <Button variant="outline" size="icon" className="theme-surface theme-border">
                   <Palette className="h-4 w-4 theme-text-secondary" />
                 </Button>
               </PopoverTrigger>
-              <PopoverContent className="w-48 theme-surface theme-border">
+              <PopoverContent className="w-56 theme-surface theme-border">
+                <div className="space-y-4">
+                  <div>
+                    <h4 className="font-medium theme-text-primary mb-2">Color Themes</h4>
+                    <div className="space-y-1">
+                      {themes.map((themeOption) => (
+                        <button
+                          key={themeOption.value}
+                          onClick={() => setTheme(themeOption.value as any)}
+                          className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-150 flex items-center space-x-3"
+                        >
+                          <div className={`w-4 h-4 ${themeOption.color} rounded-full`} />
+                          <span className={`theme-text-primary text-sm ${theme === themeOption.value ? 'font-medium' : ''}`}>
+                            {themeOption.name}
+                          </span>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <Separator />
+                  
+                  <div>
+                    <h4 className="font-medium theme-text-primary mb-2">Font Styles</h4>
+                    <div className="space-y-1">
+                      {fontCombinations.map((font) => (
+                        <button
+                          key={font.value}
+                          onClick={() => setFontCombination(font.value as any)}
+                          className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-150"
+                        >
+                          <div className={`theme-text-primary text-sm ${fontCombination === font.value ? 'font-medium' : ''}`}>
+                            {font.name}
+                          </div>
+                          <div className="theme-text-muted text-xs">
+                            {font.description}
+                          </div>
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </PopoverContent>
+            </Popover>
+
+            {/* Font Switcher */}
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button variant="outline" size="icon" className="theme-surface theme-border">
+                  <Type className="h-4 w-4 theme-text-secondary" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-52 theme-surface theme-border">
                 <div className="space-y-2">
-                  {themes.map((themeOption) => (
+                  <h4 className="font-medium theme-text-primary mb-2">Typography</h4>
+                  {fontCombinations.map((font) => (
                     <button
-                      key={themeOption.value}
-                      onClick={() => setTheme(themeOption.value as any)}
-                      className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-150 flex items-center space-x-3"
+                      key={font.value}
+                      onClick={() => setFontCombination(font.value as any)}
+                      className="w-full text-left px-3 py-2 rounded-md hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-150"
                     >
-                      <div className={`w-4 h-4 ${themeOption.color} rounded-full`} />
-                      <span className={`theme-text-primary ${theme === themeOption.value ? 'font-medium' : ''}`}>
-                        {themeOption.name}
-                      </span>
+                      <div className={`theme-text-primary text-sm ${fontCombination === font.value ? 'font-medium' : ''}`}>
+                        {font.name}
+                      </div>
+                      <div className="theme-text-muted text-xs">
+                        {font.description}
+                      </div>
                     </button>
                   ))}
                 </div>
