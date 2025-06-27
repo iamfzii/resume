@@ -7,7 +7,7 @@ import { Palette, Menu, Settings, Type, Download } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import { motion } from "framer-motion";
 import DesignSystemSwitcher from "@/components/design-system-switcher";
-import { generateSimpleResumePDF } from "@/lib/simple-pdf-generator";
+import { generateATSResumePDF } from "@/lib/ats-pdf-generator";
 
 const navigation = [
   { name: "Home", href: "#hero" },
@@ -44,7 +44,7 @@ export default function Navigation() {
 
   const handleDownloadPDF = () => {
     try {
-      generateSimpleResumePDF();
+      generateATSResumePDF();
     } catch (error) {
       console.error('PDF generation failed:', error);
     }
