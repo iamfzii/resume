@@ -72,7 +72,7 @@ export default function ExperienceSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="font-heading font-semibold text-3xl sm:text-4xl mb-12 text-center theme-text-primary"
+          className="font-heading font-semibold text-3xl sm:text-4xl mb-6 text-center theme-text-primary"
         >
           Work Experience
         </motion.h2>

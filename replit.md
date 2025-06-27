@@ -114,6 +114,7 @@ This is a modern, responsive resume website for Muhammad Fazeel, a Technical Ope
 ```
 Changelog:
 - June 27, 2025. Initial setup
+- June 27, 2025. Enhanced demonstrations with high-tech interactive cards, 3D hover effects, and reduced section title spacing for better visual flow
 ```
 
 ## User Preferences

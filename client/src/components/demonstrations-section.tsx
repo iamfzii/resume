@@ -142,7 +142,7 @@ export default function DemonstrationsSection() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="font-heading font-semibold text-3xl sm:text-4xl mb-12 text-center theme-text-primary"
+          className="font-heading font-semibold text-3xl sm:text-4xl mb-6 text-center theme-text-primary"
         >
           Live Demonstrations
         </motion.h2>
@@ -155,7 +155,7 @@ export default function DemonstrationsSection() {
             transition={{ duration: 0.6 }}
           >
             <Card className="theme-surface rounded-2xl shadow-lg p-6 theme-border border">
-              <h3 className="font-heading font-semibold text-xl mb-6 theme-primary flex items-center">
+              <h3 className="font-heading font-semibold text-xl mb-4 theme-primary flex items-center">
                 <Monitor className="w-5 h-5 mr-3" />
                 Web & UI Demonstrations
               </h3>
@@ -244,7 +244,7 @@ export default function DemonstrationsSection() {
             transition={{ duration: 0.6 }}
           >
             <Card className="theme-surface rounded-2xl shadow-lg p-6 theme-border border">
-              <h3 className="font-heading font-semibold text-xl mb-6 theme-primary flex items-center">
+              <h3 className="font-heading font-semibold text-xl mb-4 theme-primary flex items-center">
                 <Bot className="w-5 h-5 mr-3" />
                 Machine Learning Demonstrations
               </h3>
