@@ -1,0 +1,32 @@
+📁 Projects
+📱 Messaging Android Application
+Tech Stack: Java, Android Studio, XML, Material Design, RecyclerView
+Skills: Designed native Android UI, implemented RecyclerView for dynamic message loading, applied custom XML layouts, and followed Material Design principles.
+
+💰 Tax Calculator Web App
+Tech Stack: React.js, JavaScript, HTML, CSS, Bootstrap, Figma
+Skills: Converted static Figma designs into responsive components, implemented real-time form logic, and applied React state management for user input handling.
+
+🧠 Fake News Classification System
+Tech Stack: Python, Scikit-learn, NLTK, TfidfVectorizer
+Skills: Preprocessed text data, applied TF-IDF vectorization, trained logistic regression model, and evaluated classification accuracy.
+
+🖐️ Hand Gesture Presentation Controller
+Tech Stack: Python, OpenCV, Mediapipe, PyAutoGUI
+Skills: Captured hand landmarks using Mediapipe, integrated real-time gesture recognition with screen control automation.
+
+🚢 Logistics Dashboard (Internship)
+Tech Stack: MERN Stack (MongoDB, Express.js, React.js, Node.js), Axios
+Skills: Built frontend dashboard views, integrated REST APIs for backend data flow, and participated in feature coordination during development sprints.
+
+📊 Titanic Survival Prediction
+Tech Stack: Python, Pandas, Scikit-learn, Seaborn
+Skills: Cleaned and visualized dataset, applied logistic regression, analyzed model performance using accuracy and confusion matrix.
+
+📢 Facebook Ads Campaign – MoveMate (UAE)
+Tech Stack: Facebook Ads Manager, Canva, Google Sheets, Meta Pixel
+Skills: Created and managed ad creatives, implemented tracking pixels, monitored campaign metrics, and collaborated across remote teams.
+
+🌐 Capstone Web & Hosting Operations
+Tech Stack: WordPress, cPanel, WHM, Google Workspace, Trello
+Skills: Deployed and managed WordPress sites, configured domains and DNS, handled hosting support tickets, and tracked tasks via Trello.

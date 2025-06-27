@@ -1,0 +1,54 @@
+🔮 Demonstrations
+🌐 Web & UI Demonstrations
+Cryptocurrency Price UI
+Tech Stack: JavaScript, HTML, CSS
+Skills: Created a real-time cryptocurrency price interface using public APIs, DOM manipulation, and event-driven UI logic.
+
+JavaScript Counter App
+Tech Stack: JavaScript, HTML, CSS
+Skills: Developed a simple counter app demonstrating logic handling with increment, decrement, and reset functionality.
+
+React Counter App
+Tech Stack: React.js
+Skills: Implemented component-based state management using React hooks for real-time UI updates.
+
+JavaScript Calculator
+Tech Stack: JavaScript, HTML, CSS
+Skills: Built a basic calculator supporting arithmetic operations with responsive input/output handling.
+
+Online Compiler UI (Simulated)
+Tech Stack: JavaScript, HTML, CSS
+Skills: Designed a simulated code editor interface with input/output layout and interactive UI feedback.
+
+Rock Paper Scissors Game
+Tech Stack: JavaScript, HTML, CSS
+Skills: Coded conditional logic and interactive gameplay UI using event listeners and DOM manipulation.
+
+Stopwatch Timer
+Tech Stack: JavaScript, HTML, CSS
+Skills: Built a stopwatch timer with start, pause, and reset logic using JavaScript time functions.
+
+🤖 Machine Learning Demonstrations
+Neural Network – Digit Recognition
+Tech Stack: Python, TensorFlow/Keras
+Skills: Trained a dense neural network to classify handwritten digits using MNIST dataset with evaluation metrics.
+
+Simple Linear Regression – Salary Prediction
+Tech Stack: Python, Pandas, Scikit-learn
+Skills: Built a linear regression model to predict salary based on years of experience and plotted regression line.
+
+Multiple Linear Regression – Salary Estimation
+Tech Stack: Python, Pandas, Scikit-learn
+Skills: Predicted salary using multiple independent variables; performed encoding and model evaluation.
+
+Decision Tree Classifier – Food Likness
+Tech Stack: Python, Scikit-learn
+Skills: Created a decision tree classifier to predict food preferences using demographic input features.
+
+K-NN Classifier – Food Likness Accuracy
+Tech Stack: Python, Scikit-learn
+Skills: Implemented K-Nearest Neighbors algorithm for food preference classification and accuracy comparison.
+
+Unsupervised Learning – Clustering Models
+Tech Stack: Python, Scikit-learn, Matplotlib, Seaborn
+Skills: Applied K-means, DBSCAN, Agglomerative Clustering, and K-medoids with cluster visualizations, confusion matrix, and silhouette analysis.

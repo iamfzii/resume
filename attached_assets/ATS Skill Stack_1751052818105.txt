@@ -1,0 +1,30 @@
+Programming & Scripting Languages:
+Python, JavaScript, Java, C++, HTML5, CSS3, Bash, XML, JSON
+
+Frontend Development & UI Technologies:
+React.js, Tailwind CSS, Bootstrap, HTML/CSS, Responsive Web Design, DOM Manipulation, Component-Based Architecture, State Management, UI Prototyping, Figma to Code Conversion
+
+Backend Development & API Integration:
+Node.js, Express.js, RESTful APIs, API Testing (Postman), CRUD Operations, Authentication & Authorization Workflows
+
+Databases & Cloud Storage:
+MongoDB, Firebase Realtime Database, NoSQL Databases, Firestore (basic), Data Persistence, Cloud-Based Data Sync
+
+Data Science & Machine Learning:
+Pandas, NumPy, Scikit-learn, Matplotlib, Seaborn, OpenCV, TensorFlow, Keras, TfidfVectorizer, NLTK, Mediapipe, Data Preprocessing, Data Visualization, Regression, Classification, Clustering, Model Training, Accuracy Evaluation, Supervised & Unsupervised Learning
+
+AI & Automation Tools:
+ChatGPT, Gemini, GitHub Copilot, Notion AI, Canva AI, Midjourney, AI Text Classification, Prompt Engineering, NLP Implementation
+
+DevOps, Hosting & Deployment:
+cPanel, WHM, Netlify, Vercel, FTP, Git, GitHub, CI/CD Awareness, DNS Management, Domain Configuration, Web Hosting Management, WordPress CMS, Google Workspace Admin
+
+Project Management & Agile Tools:
+Jira, Trello, Asana, ClickUp, Slack, Google Sheets, Agile Methodologies, Sprint Planning, Task Tracking, Kanban Boards, Team Collaboration
+
+Marketing & Product Tools:
+Facebook Ads Manager, Meta Pixel, A/B Testing, Campaign Tracking, Landing Page Deployment, Ad Creative Coordination
+
+Networking & Systems:
+OSI Model, TCP/IP, DNS Configuration, DHCP, VPN Setup, Port Management, HTTP/HTTPS Protocols, Basic Linux CLI, Network Troubleshooting, System Support
+
